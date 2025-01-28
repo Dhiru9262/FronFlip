@@ -9,7 +9,7 @@ import bodyParser from 'body-parser';
 
 
 const app= express();
-const port = 8000;
+const port = process.env.PORT || 8000;
 
 const password=process.env.DB_PASSWORD;
 
@@ -18,11 +18,6 @@ app.use(cors());
 app.use(bodyParser.json({extended:true}));
 app.use(bodyParser.urlencoded({extended:true}))
 app.use('/',router);
-
-
-
-
-
 
 app.listen(port,()=>{
   console.log("running server "+port)
